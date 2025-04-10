@@ -4,7 +4,7 @@ import { songs } from "../data/songs";
 
 export default function SongList({ onSelect, currentIndex }) {
   return (
-    <div className="flex-1 bg-neutral-900 text-white p-6 overflow-y-auto scrollbar-hide">
+    <div className="flex-1 bg-neutral-900  text-white p-6 overflow-y-auto scrollbar-hide">
       <input
         type="text"
         placeholder="Search Song, Artist"

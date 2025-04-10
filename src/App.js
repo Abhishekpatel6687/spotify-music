@@ -10,7 +10,7 @@ export default function App() {
     <div className="flex h-screen">
       <Sidebar />
       <SongList currentIndex={currentSongIndex} onSelect={setCurrentSongIndex} />
-      <Player currentIndex={currentSongIndex} />
+      <Player currentIndex={currentSongIndex} setCurrentIndex={setCurrentSongIndex}/>
     </div>
   );
 }
