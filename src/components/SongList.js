@@ -15,10 +15,10 @@ export default function SongList({ onSelect, currentId }) {
   console.log(filteredSongs, "filteredSongs");
 
   return (
-    <div className="flex-1 bg-neutral-900  text-white p-6 overflow-y-auto scrollbar-hide">
+    <div className="flex-1  bg-neutral-900  text-white p-6 overflow-y-auto scrollbar-hide">
     {/* <div className=" w-[30rem] bg-neutral-900  text-white p-6 "> */}
 
-      <div className="flex">
+      <div className="flex  relative z-50">
         <input
           type="text"
           value={searchTerm}
@@ -35,7 +35,7 @@ export default function SongList({ onSelect, currentId }) {
           </button>
         )} */}
       </div>
-      <ul className="space-y-2">
+      <ul className="space-y-2 relative z-50">
         {SongLists.length === 0 ? (
           <p className="text-center text-neutral-400">No songs found.</p>
         ) : (

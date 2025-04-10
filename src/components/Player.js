@@ -110,6 +110,11 @@ export default function Player({ currentId, setCurrentId }) {
     }
   }
   
+  // useEffect(() => {
+  //   if (audioRef.current && isPlaying) {
+  //     audioRef.current.play();
+  //   }
+  // }, [song]);
   const toggleFavourite = () => {
     const isFav = favourites.some((fav) => fav.title === song.title);
     let updatedFavourites;
@@ -124,7 +129,14 @@ export default function Player({ currentId, setCurrentId }) {
     localStorage.setItem("favouriteSongs", JSON.stringify(updatedFavourites));
   };
   return (
-    <div className="w-[44rem]  bg-neutral-900 text-white  p-6 flex flex-col items-center justify-center">
+    <div className=" w-[44rem]  bg-neutral-900 text-white  p-6 flex flex-col items-center justify-center overflow-hidden scrollbar-hide">
+<div
+  className="absolute inset-0 z-0 bg-cover bg-center blur-lg opacity-30"
+  style={{ backgroundImage: `url(${song.img})` }}
+></div>
+
+    <div className="relative z-10">
+
 {
   [song].map((item, i) => {
     return(
@@ -206,6 +218,7 @@ export default function Player({ currentId, setCurrentId }) {
     )
   })
 }
+</div>
     </div>
   );
 }

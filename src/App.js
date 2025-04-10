@@ -7,7 +7,7 @@ export default function App() {
   const [currentSongId, setCurrentSongId] = useState(0);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen ">
       <Sidebar />
       <SongList currentId={currentSongId} onSelect={setCurrentSongId} />
       <Player currentId={currentSongId} setCurrentId={setCurrentSongId}/>
