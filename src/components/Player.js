@@ -4,12 +4,13 @@ import { FaBackward, FaForward, FaPlay, FaPause } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { songs } from "../data/songs";
 
-export default function Player({ currentIndex, setCurrentIndex }) {
-  const[index, setIndex] = useState(currentIndex)
+export default function Player({ currentId, setCurrentId }) {
+  const[id, setId] = useState(currentId)
+  // console.log(id,'idddd')
   const [song, setSong] = useState([])
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [valumeOn, setValumeOff] = useState(true)
+  const [valumeOn, setValumeOn] = useState(true)
 
 
   const [progress, setProgress] = useState(0); // progress in %
@@ -21,7 +22,7 @@ export default function Player({ currentIndex, setCurrentIndex }) {
     const stored = localStorage.getItem("favouriteSongs");
     return stored ? JSON.parse(stored) : [];
   });
-  console.log(favourites,'favourites')
+  // console.log(favourites,'favourites')
 
   const handleSeek = (e) => {
     const audio = audioRef.current;
@@ -55,19 +56,19 @@ export default function Player({ currentIndex, setCurrentIndex }) {
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("ended", handleEnded); // 👈 cleanup bhi zaruri hai
     };
-  }, [currentIndex]);
+  }, [currentId]);
   
 
   useEffect(() => {
     setIsPlaying(false);
-    const newSong  = songs[index]
+    const newSong  = songs[id]
     setSong(newSong )    
-    setCurrentIndex(index);
-  },[index])
+    setCurrentId(id);
+  },[id])
   
   useEffect(() => {
-    setIndex(currentIndex);
-  }, [currentIndex]);
+    setId(currentId);
+  }, [currentId]);
   
 
   const togglePlay = () => {
@@ -87,25 +88,25 @@ export default function Player({ currentIndex, setCurrentIndex }) {
   
     if (valumeOn) {
       audio.muted = true;        
-      setValumeOff(false);         
+      setValumeOn(false);         
     } else {
       audio.muted = false;         
-      setValumeOff(true);          
+      setValumeOn(true);          
     }
   };
   
   const playNext = () => {
-    if(index < songs.length-1){
+    if(id < songs.length-1){
     
-      setIndex(index + 1)      
-      // setCurrentIndex(currentIndex + 1);    
+      setId(id + 1)      
+      // setCurrentId(currentId + 1);    
     }
   }
 
   const playPrev = () => {
-    if(index > 0){
-      setIndex(index - 1)      
-      // setCurrentIndex(currentIndex - 1);    
+    if(id > 0){
+      setId(id - 1)      
+      // setCurrentId(currentId - 1);    
     }
   }
   
@@ -163,15 +164,15 @@ export default function Player({ currentIndex, setCurrentIndex }) {
     <div className="absolute top-6 -right-4 bg-neutral-800 text-white px-4 py-2 rounded shadow">
    <button onClick={toggleFavourite} className="flex items-center  gap-2">
   {favourites.some((fav) => fav.title === song.title) ? (
-    <button>
+    // <button>
       <AiFillHeart className="text-red-500" />
-      {/* <span>Remove from Favourite</span> */}
-    </button>
+    //   <span>Remove from Favourite</span>
+    // </button>
   ) : (
-    <button>
+    // <button>
       <AiOutlineHeart className="text-white" />
-      {/* <span>Add to Favourite</span> */}
-    </button>
+    //   <span>Add to Favourite</span>
+    // </button>
   )}
 </button>
     </div>
@@ -181,7 +182,7 @@ export default function Player({ currentIndex, setCurrentIndex }) {
 
       <div className="flex gap-8 justify-center items-center">
          <button onClick={playPrev} >
-      <FaBackward color={index === 0 ? "gray" : "white"}/>
+      <FaBackward color={id === 0 ? "gray" : "white"}/>
       </button>
       <button
         onClick={togglePlay}
@@ -190,7 +191,7 @@ export default function Player({ currentIndex, setCurrentIndex }) {
         {isPlaying ? <FaPause /> : <FaPlay />}
       </button>
       <button onClick={playNext} >
-      <FaForward color={index === songs.length - 1 ? "gray" : "white"}/>
+      <FaForward color={id === songs.length - 1 ? "gray" : "white"}/>
       </button>
      
       </div>
