@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <div className="flex h-screen ">
-      <Sidebar />
+      <Sidebar currentId={currentSongId} onSelect={setCurrentSongId}/>
       <SongList currentId={currentSongId} onSelect={setCurrentSongId} />
       <Player currentId={currentSongId} setCurrentId={setCurrentSongId}/>
     </div>

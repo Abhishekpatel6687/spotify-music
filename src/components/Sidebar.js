@@ -1,15 +1,27 @@
 import React, { useState } from "react";
+import { songs } from "../data/songs";
 
-export default function Sidebar() {
+export default function Sidebar({currentId, onSelect}) {
+  console.log(currentId,'currentId, onSelect')
   const [favouritesData, setFavouritesData] = useState([]);
 
+const forYou = () => {
+  console.log("forYou")
+}
+
+const topTracks = () => {
+  console.log("topTracks")
+}
   const FavouriteListSongs = () => {
     const stored = localStorage.getItem("favouriteSongs");
     const parsed = stored ? JSON.parse(stored) : [];
     setFavouritesData(parsed);
     console.log(parsed, 'Fetched Favourite Songs');
   };
-
+  
+  const pecentlyPlayed = () => {
+    console.log("pecentlyPlayed")
+  }
   return (
     <aside className="w-1/4 bg-black text-white p-6 flex flex-col justify-between min-h-screen">
 
@@ -19,13 +31,19 @@ export default function Sidebar() {
           alt="Logo" 
           className="w-32 z-10 h-10"
         />
-        <nav className="relative z-50 mt-6 space-y-4">
-        <p>For You</p>
-        <p>Top Tracks</p>
+        <nav className="relative flex flex-col items-start z-50 mt-6 space-y-4">
+        <button onClick={forYou}>
+          <p>For You</p>
+        </button>
+        <button onClick={topTracks}>
+          <p>Top Tracks</p>
+        </button>
         <button onClick={FavouriteListSongs}>
           <p>Favourites</p>
         </button>
-        <p>Recently Played</p>
+        <button onClick={pecentlyPlayed}>
+          <p>Recently Played</p>
+        </button>
       </nav>
       </div>
 

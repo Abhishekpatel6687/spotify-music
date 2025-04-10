@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";  
 import { songs } from "../data/songs";
+
 
 export default function SongList({ onSelect, currentId }) {
   const [SongLists, setSongLists] = useState(songs);
@@ -19,13 +21,16 @@ export default function SongList({ onSelect, currentId }) {
       {/* Sticky Header */}
       <div className="sticky top-0 z-10 p-6">
         <h1 className="text-3xl font-semibold mb-4">For You</h1>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search Song, Artist"
-          className="w-full p-2 rounded bg-neutral-800 text-white"
-        />
+        <div className="relative w-full">
+  <input
+    type="text"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    placeholder="Search Song, Artist"
+    className="w-full p-2 pr-10 rounded bg-neutral-800 text-white"
+  />
+  <FaSearch className="absolute cursor-pointer right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+</div>
       </div>
 
       {/* Scrollable Song List */}
