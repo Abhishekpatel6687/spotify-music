@@ -1,0 +1,73 @@
+export const songs = [
+  {
+    title: "Starboy",
+    artist: "The Weeknd",
+    duration: "4:16",
+    img: "/image/a.jpg",
+    song: "/songs/adhuri-kahani-jo-na-hosaki-puri-hindi-song-236791.mp3",
+  },
+  {
+    title: "Demons",
+    artist: "Imagine Dragons",
+    duration: "5:24",
+    img: "/image/d.jpg",
+    song: "/songs/bollywood-song-313044.mp3",
+  },
+  {
+    title: "Lonely Nights",
+    artist: "Imagine Dragons",
+    duration: "5:24",
+    img: "/image/f.webp",
+    song: "/songs/dil-se-door-nahi-hindi-song-hindi-song-238290.mp3",
+  },
+  {
+    title: "Ghost Town",
+    artist: "The Weeknd",
+    duration: "4:16",
+    img: "/image/g.webp",
+    song: "/songs/heartbroken-winter-sad-instrumental-bollywood-song-306095.mp3",
+  },
+  {
+    title: "Echoes",
+    artist: "Imagine Dragons",
+    duration: "5:24",
+    img: "/image/h.webp",
+    song: "/songs/indian-bollywood-hindi-song-background-music-294105.mp3",
+  },
+  {
+    title: "Meri Duniya",
+    artist: "Arijit Singh",
+    duration: "4:45",
+    img: "/image/j.webp",
+    song: "/songs/meri-duniya-294226.mp3",
+  },
+  {
+    title: "Tera Roothna",
+    artist: "Ashir",
+    duration: "5:02",
+    img: "/image/k.webp",
+    song: "/songs/romantic-song-tera-roothna-by-ashir-hindi-top-trending-viral-song-231771.mp3",
+  },
+  {
+    title: "Saanjh Sunheri",
+    artist: "Unknown",
+    duration: "4:18",
+    img: "/image/l.jpg",
+    song: "/songs/saanjh-sunheri-romantic-pop-207647.mp3",
+  },
+  {
+    title: "Sapne Bade",
+    artist: "Bollywood Dreams",
+    duration: "4:35",
+    img: "/image/s.jpg",
+    song: "/songs/sapne-bade-305719.mp3",
+  },
+  {
+    title: "Teri Ye Adaa",
+    artist: "Romantic Beats",
+    duration: "3:59",
+    img: "/image/f.webp",
+    song: "/songs/teri-ye-adaa-romantic-song-206526.mp3",
+  },
+
+];

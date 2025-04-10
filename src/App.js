@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import SongList from "./components/SongList";
+import Player from "./components/Player";
 
-function App() {
+export default function App() {
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen">
+      <Sidebar />
+      <SongList currentIndex={currentSongIndex} onSelect={setCurrentSongIndex} />
+      <Player currentIndex={currentSongIndex} />
     </div>
   );
 }
-
-export default App;
