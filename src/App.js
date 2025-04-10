@@ -21,12 +21,14 @@ export default function App() {
       const stored = localStorage.getItem("favouriteSongs");
       const parsed = stored ? JSON.parse(stored) : [];
       setFilteredSongs(parsed);
-    }
+    } else if (tab === "Recently Played") {
+      setFilteredSongs(songs.slice(-3));
+    } 
   };
 
   return (
     <div className="flex h-screen ">
-     <Sidebar onSelectTab={handleSidebarSelect} />
+     <Sidebar activeTab={activeTab} onSelectTab={handleSidebarSelect} />
       <SongList
         currentId={currentSongId}
         onSelect={setCurrentSongId}
