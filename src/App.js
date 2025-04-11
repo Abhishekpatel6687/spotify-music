@@ -36,7 +36,7 @@ export default function App() {
         activeTab={activeTab}
       />
       {/* <SongList currentId={currentSongId} onSelect={setCurrentSongId} /> */}
-      <Player currentId={currentSongId} setCurrentId={setCurrentSongId}/>
+      <Player currentId={currentSongId}  setCurrentId={setCurrentSongId}/>
     </div>
   );
 }
