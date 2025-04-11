@@ -8,7 +8,6 @@ export default function Sidebar({ onSelectTab, activeTab }) {
 
   return (
     <>
-      {/* Hamburger Button (only visible on mobile) */}
       <button
         onClick={() => setShowSidebar(!showSidebar)}
         className="md:hidden fixed top-3 left-3 text-white text-2xl p-3 z-50"
@@ -23,10 +22,8 @@ export default function Sidebar({ onSelectTab, activeTab }) {
         ${showSidebar ? "translate-x-0 z-40" : "-translate-x-full "} z-10
         md:translate-x-0 md:block`}
       >
-        {/* Sidebar Content */}
         <div className="flex flex-col justify-between h-full">
           <div className=" ">
-            {/* Logo */}
             <img
               src="/image/logoImage/Vector.png"
               alt="Logo"
@@ -37,7 +34,6 @@ export default function Sidebar({ onSelectTab, activeTab }) {
               className="w-32 h-10  cursor-pointer mb-6"
             />
 
-            {/* Navigation Tabs */}
             <nav className="flex flex-col gap-4">
               {tabs.map((tab) => (
                 <button
@@ -58,7 +54,6 @@ export default function Sidebar({ onSelectTab, activeTab }) {
             </nav>
           </div>
 
-          {/* Profile Image */}
           <div className="pt-8 ">
             <img
               src="/image/profile.png"
@@ -69,7 +64,6 @@ export default function Sidebar({ onSelectTab, activeTab }) {
         </div>
       </aside>
 
-      {/* Overlay (only on mobile when sidebar is open) */}
       {showSidebar && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50  md:hidden"

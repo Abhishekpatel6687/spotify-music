@@ -15,9 +15,10 @@ export default function SongList({ onSelect, currentId, songs, activeTab }) {
 
   return (
     <div className="flex-1  bg-neutral-900  text-white flex flex-col h-full">
-      {/* Fixed Searchbar */}
       <div className="fixed top-0 left-0 z-10  flex md:flex-col right-0  px-4 mt-4  md:relative md:px-6">
-        <h1 className="text-2xl md:text-3xl font-semibold mb-0 hidden md:block md:mb-4">{activeTab}</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold mb-0 hidden md:block md:mb-4">
+          {activeTab}
+        </h1>
         <div className="relative w-full ">
           <input
             type="text"
@@ -30,7 +31,6 @@ export default function SongList({ onSelect, currentId, songs, activeTab }) {
         </div>
       </div>
 
-      {/* Scrollable Songs */}
       <div className="flex-1 overflow-y-auto p-4 pt-2 mt-[23rem] px-8 md:px-4  md:mt-0 scrollbar-hide">
         <ul className="space-y-2 z-10 relative">
           {SongLists.length === 0 ? (
@@ -55,7 +55,9 @@ export default function SongList({ onSelect, currentId, songs, activeTab }) {
                     <p className="text-xs text-gray-400">{song.artist}</p>
                   </div>
                 </div>
-                <p className="text-xs md:text-sm text-gray-400">{song.duration}</p>
+                <p className="text-xs md:text-sm text-gray-400">
+                  {song.duration}
+                </p>
               </li>
             ))
           )}

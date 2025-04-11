@@ -4,7 +4,6 @@ import SongList from "./components/SongList";
 import Player from "./components/Player";
 import { songs } from "./data/songs";
 
-
 export default function App() {
   const [currentSongId, setCurrentSongId] = useState(0);
   const [filteredSongs, setFilteredSongs] = useState(songs);
@@ -23,12 +22,12 @@ export default function App() {
       setFilteredSongs(parsed);
     } else if (tab === "Recently Played") {
       setFilteredSongs(songs.slice(-3));
-    } 
+    }
   };
 
   return (
     <div className="flex h-screen ">
-     <Sidebar activeTab={activeTab} onSelectTab={handleSidebarSelect} />
+      <Sidebar activeTab={activeTab} onSelectTab={handleSidebarSelect} />
       <SongList
         currentId={currentSongId}
         onSelect={setCurrentSongId}
@@ -36,7 +35,7 @@ export default function App() {
         activeTab={activeTab}
       />
       {/* <SongList currentId={currentSongId} onSelect={setCurrentSongId} /> */}
-      <Player currentId={currentSongId}  setCurrentId={setCurrentSongId}/>
+      <Player currentId={currentSongId} setCurrentId={setCurrentSongId} />
     </div>
   );
 }

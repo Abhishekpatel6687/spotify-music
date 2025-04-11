@@ -74,19 +74,17 @@ export default function Player({ currentId, setCurrentId }) {
 
   const toggleVolume = () => {
     const audio = audioRef.current;
-  
+
     if (!audio) return;
-  
+
     if (volumeOn) {
       audio.muted = true;
     } else {
       audio.muted = false;
     }
-  
+
     setVolumeOn(!volumeOn);
   };
-  
-
 
   const playNext = () => {
     if (id < songs.length - 1) setId(id + 1);
@@ -116,7 +114,6 @@ export default function Player({ currentId, setCurrentId }) {
 
   return (
     <div className="fixed md:static  top-[4rem] w-full md:w-[18rem] lg:w-[30rem] xl:w-[44rem] bg-neutral-900 text-white p-4 md:p-6 flex flex-col items-center justify-center overflow-hidden">
-      {/* Blurred background */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center blur-lg opacity-30"
         style={{ backgroundImage: `url(${song.img})` }}
@@ -124,10 +121,10 @@ export default function Player({ currentId, setCurrentId }) {
 
       <div className="relative z-10 mt-0  md:mt-40 lg:mt-10 xl:mt-0">
         <div className="w-[420px] h-[620px] flex flex-col items-center">
-        <div className="w-[240px]  md:w-[200px] lg:w-[340px] xl:w-[420px]  md:mb-4 flex flex-col items-center justify-center md:justify-start md:items-start text-center">
-  <h2 className="text-2xl hidden md:block font-bold">{song.title}</h2>
-  <p className="text-sm text-white mb-2">{song.artist}</p>
-</div>
+          <div className="w-[240px]  md:w-[200px] lg:w-[340px] xl:w-[420px]  md:mb-4 flex flex-col items-center justify-center md:justify-start md:items-start text-center">
+            <h2 className="text-2xl hidden md:block font-bold">{song.title}</h2>
+            <p className="text-sm text-white mb-2">{song.artist}</p>
+          </div>
 
           <img
             src={song.img || "/image/a.jpg"}
@@ -135,7 +132,6 @@ export default function Player({ currentId, setCurrentId }) {
             className="w-[220px] h-[180px] md:w-[200px] md:h-[180px] lg:w-[340px] xl:w-[420px] lg:h-[300px] xl:h-[440px] rounded-lg mb-2 md:mb-4 object-fill"
           />
 
-          {/* Progress bar */}
           <div
             className="w-[220px] md:w-[200px] lg:w-[340px] xl:w-[420px] h-1 bg-neutral-700 mb-2 md:mb-6 cursor-pointer relative"
             onClick={handleSeek}
@@ -147,9 +143,7 @@ export default function Player({ currentId, setCurrentId }) {
             ></div>
           </div>
 
-          {/* Controls */}
           <div className="flex space-x-4 text-xl w-[220px] md:w-[200px] lg:w-[340px]  xl:w-[420px] justify-between items-center">
-            {/* More Options */}
             <div className="relative">
               <BsThreeDots
                 className="cursor-pointer"
@@ -171,7 +165,6 @@ export default function Player({ currentId, setCurrentId }) {
               )}
             </div>
 
-            {/* Playback Buttons */}
             <div className="flex gap-8 justify-center items-center">
               <button onClick={playPrev}>
                 <FaBackward color={id === 0 ? "gray" : "white"} />
@@ -183,19 +176,15 @@ export default function Player({ currentId, setCurrentId }) {
                 {isPlaying ? <FaPause /> : <FaPlay />}
               </button>
               <button onClick={playNext}>
-                <FaForward
-                  color={id === songs.length - 1 ? "gray" : "white"}
-                />
+                <FaForward color={id === songs.length - 1 ? "gray" : "white"} />
               </button>
             </div>
 
-            {/* Volume Toggle */}
             <button onClick={toggleVolume}>
               {volumeOn ? <BsFillVolumeUpFill /> : <BsFillVolumeMuteFill />}
             </button>
           </div>
 
-          {/* Audio Element */}
           <audio ref={audioRef} src={song.song} />
         </div>
       </div>
