@@ -51,7 +51,7 @@ export default function Player({ currentId, setCurrentId }) {
     const newSong = songs[id];
     setSong(newSong);
     setCurrentId(id);
-  }, [id]);
+  }, [id, setCurrentId]);
 
   useEffect(() => {
     setId(currentId);
@@ -113,15 +113,15 @@ export default function Player({ currentId, setCurrentId }) {
   };
 
   return (
-    <div className="fixed md:static  top-[4rem] w-full md:w-[18rem] lg:w-[30rem] xl:w-[44rem] bg-neutral-900 text-white p-4 md:p-6 flex flex-col items-center justify-center overflow-hidden">
+    <div className="fixed md:static top-[4rem] w-full md:w-[18rem] lg:w-[30rem] xl:w-[44rem] bg-neutral-900 text-white p-4 md:p-6 flex flex-col items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center blur-lg opacity-30"
         style={{ backgroundImage: `url(${song.img})` }}
       ></div>
 
-      <div className="relative z-10 mt-0  md:mt-40 lg:mt-10 xl:mt-0">
+      <div className="relative z-10 mt-0 md:mt-40 lg:mt-10 xl:mt-0">
         <div className="w-[420px] h-[620px] flex flex-col items-center">
-          <div className="w-[240px]  md:w-[200px] lg:w-[340px] xl:w-[420px]  md:mb-4 flex flex-col items-center justify-center md:justify-start md:items-start text-center">
+          <div className="w-[240px] md:w-[200px] lg:w-[340px] xl:w-[420px] md:mb-4 flex flex-col items-center justify-center md:justify-start md:items-start text-center">
             <h2 className="text-2xl hidden md:block font-bold">{song.title}</h2>
             <p className="text-sm text-white mb-2">{song.artist}</p>
           </div>
@@ -143,7 +143,7 @@ export default function Player({ currentId, setCurrentId }) {
             ></div>
           </div>
 
-          <div className="flex space-x-4 text-xl w-[220px] md:w-[200px] lg:w-[340px]  xl:w-[420px] justify-between items-center">
+          <div className="flex space-x-4 text-xl w-[220px] md:w-[200px] lg:w-[340px] xl:w-[420px] justify-between items-center">
             <div className="relative">
               <BsThreeDots
                 className="cursor-pointer"
